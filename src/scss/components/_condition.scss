@@ -1,0 +1,36 @@
+.condition {
+  display: flex;
+  align-items: center;
+
+  &__checkbox {
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 4px;
+    border: 1px solid #dbe2ea;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .active {
+    border-color: #0880ae;
+  }
+
+  &__text {
+    margin-left: 10px;
+    font-weight: medium;
+    font-size: 16px;
+    line-height: 21px;
+    color: #756f86;
+    user-select: none;
+    span {
+      cursor: pointer;
+    }
+  }
+
+  &__hypertext {
+    color: #0880ae;
+  }
+}

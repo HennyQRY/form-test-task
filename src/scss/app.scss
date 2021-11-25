@@ -1,0 +1,21 @@
+@import 'fonts';
+@import './components';
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  outline: none;
+  font-family: IBM Plex Sans;
+  font-weight: normal;
+  box-sizing: border-box;
+  color: #2c2738;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #d3d3d3;
+}
