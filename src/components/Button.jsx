@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Button() {
+function Button({ disabledButton }) {
   return (
-    <button disabled className='button'>
+    <button disabled={disabledButton} className='button'>
       Зарегистрироваться
     </button>
   );

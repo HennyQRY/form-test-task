@@ -1,39 +1,44 @@
 import React from 'react';
 
+const reg = {
+  name: /^[а-яА-Яa-zA-Z\s\-]+$/,
+  email: /^[\w\-]+@[\w\-]+\.[a-zA-Z]+$/,
+  tel: /^\+?\d[\(\s\-]*\d{3}[\)\s\-]*\d{3}[\s\-]*\d{2}[\s\-]*\d{2}$/,
+};
+
 export const useForm = () => {
   const [regData, setRegData] = React.useState({
     name: '',
     email: '',
     tel: '',
     language: '',
+    condition: false,
   });
 
-  const [errors, setErrors] = React.useState({});
+  const [errors, setErrors] = React.useState({
+    name: false,
+    email: false,
+    tel: false,
+  });
+
+  const disabledButton =
+    Object.values(regData).some((item) => !item) ||
+    Object.values(errors).some((item) => !!item);
 
   const validateField = (fillName, value) => {
     const newErrors = {};
-    switch (fillName) {
-      case 'name':
-        newErrors.name = !/^[а-яА-Яa-zA-Z\s\-]+$/.test(value);
-        break;
-      case 'email':
-        newErrors.email = !/^[\w\-]+@[\w\-]+\.[a-zA-Z]+$/.test(value);
-        break;
-      case 'tel':
-        newErrors.tel = !/^\+\d\(\d{3}\)\d{3}\-\d{2}\-\d{2}$/.test(value);
-        break;
-      default:
-        break;
-    }
+    if (reg[fillName]) newErrors[fillName] = !reg[fillName].test(value);
     setErrors({ ...errors, ...newErrors });
   };
 
   const onChangeHandler = (e) => {
-    setRegData({ ...regData, [e.target.name]: e.target.value });
+    setRegData({
+      ...regData,
+      [e.target.name]:
+        e.target.type === 'checkbox' ? e.target.checked : e.target.value,
+    });
     validateField(e.target.name, e.target.value);
   };
 
-  console.log(errors);
-
-  return [regData, onChangeHandler];
+  return [regData, errors, disabledButton, onChangeHandler];
 };

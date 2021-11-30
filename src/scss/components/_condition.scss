@@ -1,36 +1,46 @@
 .condition {
-  display: flex;
-  align-items: center;
-
-  &__checkbox {
-    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
-    border-radius: 4px;
-    border: 1px solid #dbe2ea;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  .active {
-    border-color: #0880ae;
-  }
+  position: relative;
 
   &__text {
-    margin-left: 10px;
+    display: flex;
+    align-items: center;
     font-weight: medium;
     font-size: 16px;
     line-height: 21px;
     color: #756f86;
     user-select: none;
-    span {
-      cursor: pointer;
-    }
+  }
+
+  &__checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  &__custom-checkbox {
+    margin-right: 8px;
+    width: 28px;
+    height: 28px;
+    background: #ffffff;
+    border: 1px solid #dbe2ea;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+    border-radius: 4px;
+  }
+
+  &__checkbox:focus + &__custom-checkbox {
+    border-color: #0880ae;
+  }
+
+  &__checkbox:checked + &__custom-checkbox {
+    border-color: #0880ae;
+    background: no-repeat center url(../../assets/Checkmark.svg);
   }
 
   &__hypertext {
     color: #0880ae;
+    cursor: pointer;
   }
 }

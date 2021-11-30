@@ -4,6 +4,7 @@ import { Arrow } from '../assets/icons';
 
 function Dropdown({ elements, placeholder, onChange, name, value }) {
   const [dropdownActive, setDropdownActive] = React.useState(false);
+  const listRef = React.useRef();
 
   const handlerValue = (index) => {
     setDropdownActive(false);
@@ -13,6 +14,16 @@ function Dropdown({ elements, placeholder, onChange, name, value }) {
   const dropdownClick = () => {
     setDropdownActive(!dropdownActive);
   };
+
+  // const handleOutsideClick = (e) => {
+  //   if (!e.path.includes(listRef.current)) {
+  //     setDropdownActive(false);
+  //   }
+  // };
+
+  // React.useEffect(() => {
+  //   document.body.addEventListener('click', handleOutsideClick);
+  // }, []);
 
   return (
     <div className='dropdown'>
@@ -26,7 +37,7 @@ function Dropdown({ elements, placeholder, onChange, name, value }) {
         <Arrow />
       </div>
       {dropdownActive && (
-        <ul className='dropdown__list'>
+        <ul ref={listRef} className='dropdown__list'>
           {elements.map((item, index) => (
             <li
               key={`${index}_${item}`}

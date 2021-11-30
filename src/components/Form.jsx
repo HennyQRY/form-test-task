@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from './Button';
-import Condition from './Condition';
 import Inputs from './Inputs';
 import { useForm } from '../hooks';
 
@@ -25,20 +24,25 @@ const inputsValue = [
     elements: ['Русский', 'Английский', 'Китайский', 'Испанский'],
     name: 'language',
   },
+  {
+    title: 'Условия',
+    type: 'checkbox',
+    name: 'condition',
+  },
 ];
 
 function Form() {
-  const [regData, onChangeHandler] = useForm();
+  const [regData, errors, disabledButton, onChangeHandler] = useForm();
 
   return (
-    <form  className='account-form'>
+    <form className='account-form'>
       <Inputs
+        errors={errors}
         inputsValue={inputsValue}
         onChangeHandler={onChangeHandler}
         regData={regData}
       />
-      <Condition />
-      <Button />
+      <Button disabledButton={disabledButton} />
     </form>
   );
 }

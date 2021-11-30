@@ -1,26 +1,22 @@
 import React from 'react';
 
-import { Checkmark } from '../assets/icons';
-
-function Condition() {
-  const [activeCheckbox, setActiveCheckbox] = React.useState(false);
-
-  const checkboxHandler = () => {
-    setActiveCheckbox(!activeCheckbox);
-  };
-
+function Condition({ name, value, onChange, type }) {
   return (
     <div className='condition'>
-      <div
-        onClick={() => checkboxHandler()}
-        className={`condition__checkbox ${activeCheckbox && 'active'}`}
-      >
-        {activeCheckbox && <Checkmark />}
-      </div>
-      <p className='condition__text'>
-        Принимаю <span className='condition__hypertext'>условия</span>{' '}
-        использования
-      </p>
+      <label className='condition__text'>
+        <input
+          checked={value}
+          name={name}
+          type={type}
+          className='condition__checkbox'
+          onChange={onChange}
+        />
+        <div className='condition__custom-checkbox'></div>
+        <span>
+          Принимаю <span className='condition__hypertext'>условия</span>{' '}
+          использования
+        </span>
+      </label>
     </div>
   );
 }
