@@ -15,6 +15,8 @@ function Dropdown({ elements, placeholder, onChange, name, value }) {
     setDropdownActive(!dropdownActive);
   };
 
+  // не нужно коммитить закомментированный код
+
   // const handleOutsideClick = (e) => {
   //   if (!e.path.includes(listRef.current)) {
   //     setDropdownActive(false);
@@ -29,6 +31,7 @@ function Dropdown({ elements, placeholder, onChange, name, value }) {
     <div className='dropdown'>
       <div
         onClick={() => dropdownClick()}
+        // для работы с классами используй библиотеки, например эту: https://github.com/lukeed/clsx
         className={`dropdown__window ${dropdownActive ? 'active' : ''} ${
           value ? 'changed' : ''
         }`}

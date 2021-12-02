@@ -4,6 +4,11 @@ import Inputs from './Inputs';
 import { useForm } from '../hooks';
 
 const inputsValue = [
+    /*
+      * Придерживайся единого стиля.
+      * Либо все поля объекта в столбик, либо в строку.
+      * Почитай про линтеры и правила стилизации кода внутри проекта.
+     */
   { title: 'Имя', type: 'text', placeholder: 'Введите Ваше имя', name: 'name' },
   {
     title: 'Email',

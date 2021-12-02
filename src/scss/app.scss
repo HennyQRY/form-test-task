@@ -1,6 +1,6 @@
 @import 'fonts';
 @import './components';
-
+// не стоит распространять стили так глобально
 * {
   padding: 0;
   margin: 0;
@@ -16,6 +16,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh; // не гарантия успеха
   background-color: #d3d3d3;
 }

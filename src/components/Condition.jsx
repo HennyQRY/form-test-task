@@ -11,8 +11,10 @@ function Condition({ name, value, onChange, type }) {
           className='condition__checkbox'
           onChange={onChange}
         />
+        {/* пустые теги стоит закрывать сразу: <div className='condition__custom-checkbox' /> */}
         <div className='condition__custom-checkbox'></div>
         <span>
+          {/* span внутри span не размещается */}
           Принимаю <span className='condition__hypertext'>условия</span>{' '}
           использования
         </span>
