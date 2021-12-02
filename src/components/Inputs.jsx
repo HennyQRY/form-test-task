@@ -5,6 +5,7 @@ import ValidationError from './ValidationError';
 
 function Inputs({ inputsValue, onChangeHandler, regData, errors }) {
   return (
+    // здесь можно избавиться от фрагмента и лишних скобок
     <>
       {inputsValue.map((item, index) => {
         switch (item.type) {
